@@ -10,9 +10,13 @@
   <h3>Enter price of food and tip %: </h3>
   <form method="POST" action="{{ url_for('home') }}" novalidate>
       {{ price_form.csrf_token }}
-      {{ price_form.price.label }} {{ price_form.price(size=30) }}
+      {{ price_form.price.label }}
       <br>
-      {{ price_form.tip.label }} {{ price_form.tip(size=30) }}
+      {{ price_form.price(size=30) }}
+      <br><br>
+      {{ price_form.tip.label }}
+      <br>
+      {{ price_form.tip(size=30) }}
       {{ price_form.count(size=30) }}
       <h4>Not sure what's the local tipping custom? No worries! Pick the country you're in:</h4>
       <p>(If it's not on the list, you probably don't have to worry about tipping.)</p>

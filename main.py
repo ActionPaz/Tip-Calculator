@@ -57,7 +57,7 @@ def get_country_info(country_name):
         with app.app_context():
             country = db.session.execute(db.select(Country).where(Country.name == country_name)).scalar()
             country = country.__dict__
-            return country["info"]
+            return f"{country_name} - {country["info"]}"
     else:
         return ""
 
@@ -71,7 +71,6 @@ def home():
         tip = price_form.price.data * 0.01 * price_form.tip.data
     if country_form.validate_on_submit():
         country_info = get_country_info(country_form.country.data)
-
     return render_template("index.html", tip=tip, price_form=price_form, country_form=country_form,
                            country_info=country_info)
 
